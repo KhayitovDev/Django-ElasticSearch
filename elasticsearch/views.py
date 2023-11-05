@@ -4,12 +4,15 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework import filters
 from django.db.models import Q
 from django.http import HttpResponseNotFound
-
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
+from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
 
 
 from .serializers import VerbSerializer
 from .models import Verb
-
 
 
 class VerbVListView(ListAPIView):
